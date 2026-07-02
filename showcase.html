@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kartikeya Yadav — 3D Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syne:wght@600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+    }
+    body {
+      background: #050505;
+      color: #e8e8e8;
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      perspective: 1200px;
+    }
+    
+    /* Background Particles Canvas */
+    #bg-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* 3D Scene Container */
+    .scene {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 900px;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-style: preserve-3d;
+    }
+
+    /* The Main 3D Card */
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      border-radius: 20px;
+      padding: 4rem;
+      transform-style: preserve-3d;
+      transition: transform 0.1s ease-out;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8),
+                  0 0 40px rgba(245, 166, 35, 0.1) inset;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, rgba(245, 166, 35, 0.15), transparent 60%);
+      pointer-events: none;
+      transform: translateZ(-1px);
+    }
+
+    /* 3D Elements inside the card */
+    .content-layer {
+      transform-style: preserve-3d;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #f5a623;
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      transform: translateZ(60px);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1rem;
+      transform: translateZ(90px);
+      background: linear-gradient(to right, #fff, #f5a623);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 30px rgba(245, 166, 35, 0.2);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-bottom: 3rem;
+      transform: translateZ(70px);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      transform: translateZ(50px);
+    }
+
+    .feature-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 12px;
+      transform-style: preserve-3d;
+      transition: all 0.3s ease;
+    }
+
+    .feature-box:hover {
+      border-color: rgba(245, 166, 35, 0.4);
+      background: rgba(245, 166, 35, 0.05);
+      transform: translateZ(20px) scale(1.02);
+    }
+
+    .feature-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      color: #f5a623;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .action-btn {
+      display: inline-block;
+      margin-top: 3rem;
+      padding: 1rem 2.5rem;
+      background: #f5a623;
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      transform: translateZ(80px);
+      transition: all 0.3s ease;
+      font-family: 'Syne', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .action-btn:hover {
+      transform: translateZ(100px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(245, 166, 35, 0.4);
+    }
+
+    /* Ambient floating orb */
+    .orb {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.15), transparent 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+      transform: translateZ(-50px);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 2rem; margin: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Particles -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="scene">
+    <div class="card" id="card">
+      <div class="orb"></div>
+      
+      <div class="content-layer">
+        <div class="badge">Interactive Readme</div>
+        
+        <h1>Project<br>Showcase</h1>
+        
+        <p class="subtitle">
+          Welcome to the 3D technical overview of Kartikeya Yadav's elite digital identity. Move your mouse to explore the architecture.
+        </p>
+        
+        <div class="grid">
+          <div class="feature-box">
+            <div class="feature-title">01 / Vanilla Engine</div>
+            <div class="feature-desc">Zero heavy frameworks. Built entirely on optimized HTML5, CSS3, and raw JavaScript for maximum performance and fluid 60FPS animations.</div>
+          </div>
+          
+          <div class="feature-box">
+            <div class="feature-title">02 / Neural Canvas</div>
+            <div class="feature-desc">A custom-built particle system mapping golden neural connections in real-time on a floating background canvas.</div>
+          </div>
+          
+          <div class="feature-box">
+            <div class="feature-title">03 / CLI Interface</div>
+            <div class="feature-desc">The contact section features a simulated terminal environment, reinforcing the AI Systems Engineer identity through interactive design.</div>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-title">04 / Kinetic UI</div>
+            <div class="feature-desc">Immersive scroll reveals, 3D hover states, and dynamic typography engineered to create a premium, un-ignorable experience.</div>
+          </div>
+        </div>
+
+        <a href="index.html" class="action-btn">Launch Portfolio Universe</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 3D Card Mouse Tracking
+    const card = document.getElementById('card');
+    const scene = document.querySelector('.scene');
+
+    scene.addEventListener('mousemove', (e) => {
+      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+      card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
+
+    scene.addEventListener('mouseenter', () => {
+      card.style.transition = 'none';
+    });
+
+    scene.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.5s ease';
+      card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    });
+
+    // Background Canvas Logic
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+    for(let i = 0; i < 50; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = 'rgba(245, 166, 35, 0.3)';
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        
+        if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
