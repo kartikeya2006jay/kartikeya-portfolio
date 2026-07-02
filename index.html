@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartikey Yadav | AI & ML Engineer</title>
+  <meta name="description" content="Kartikey Yadav — AI & ML Engineer, Problem Solver, Tech Explorer. Portfolio showcasing cutting-edge AI/ML projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CANVAS PARTICLE BG -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">KY<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active"><span class="nav-num">01.</span>HOME</a></li>
+      <li><a href="#about" class="nav-link"><span class="nav-num">02.</span>ABOUT</a></li>
+      <li><a href="#skills" class="nav-link"><span class="nav-num">03.</span>SKILLS</a></li>
+      <li><a href="#projects" class="nav-link"><span class="nav-num">04.</span>PROJECTS</a></li>
+      <li><a href="#experience" class="nav-link"><span class="nav-num">05.</span>EXPERIENCE</a></li>
+      <li><a href="#research" class="nav-link"><span class="nav-num">06.</span>RESEARCH</a></li>
+      <li><a href="#contact" class="nav-link"><span class="nav-num">07.</span>CONTACT</a></li>
+    </ul>
+    <a href="#contact" class="btn-connect">LET'S CONNECT <span>▶</span></a>
+  </nav>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar-left">
+    <div class="sidebar-icon" title="Network"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+    <div class="sidebar-status"><span class="status-dot"></span>ONLINE</div>
+    <div class="sidebar-icon" title="AI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="sidebar-icon" title="Code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+    <div class="sidebar-icon" title="3D"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+    <div class="sidebar-icon" title="Terminal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+    <div class="sidebar-sys">
+      <div class="sys-label">SYSTEM<br/>STATUS</div>
+      <div class="sys-value">OPTIMAL</div>
+    </div>
+    <div class="sidebar-wave">
+      <svg viewBox="0 0 60 20" fill="none"><polyline points="0,10 5,5 10,15 15,3 20,17 25,8 30,12 35,4 40,16 45,7 50,13 55,6 60,10" stroke="#6366f1" stroke-width="1.5" fill="none"/></svg>
+    </div>
+    <div class="sidebar-version">v 3.6.1</div>
+  </aside>
+
+  <!-- SECTIONS WRAPPER -->
+  <main id="main-content">
+
+    <!-- SECTION 1: HOME -->
+    <section id="home" class="section section-home">
+      <div class="home-left">
+        <p class="welcome-sub">WELCOME TO MY <span class="accent">DIGITAL UNIVERSE</span></p>
+        <h1 class="hero-name">KARTIKEY<br/>YADAV</h1>
+        <p class="hero-roles">AI <span class="bullet">•</span> ML ENGINEER <span class="bullet">•</span> PROBLEM SOLVER <span class="bullet">•</span> TECH EXPLORER</p>
+        <p class="hero-desc">Passionate about the intersection of intelligence and technology.<br/>Exploring. Learning. Innovating.<br/>Always building what's next.</p>
+        <a href="#projects" class="btn-enter"><span class="btn-arrow">&gt;</span> ENTER PORTFOLIO</a>
+      </div>
+
+      <div class="home-center">
+        <div class="orb-container">
+          <div class="orb-ring ring-1"></div>
+          <div class="orb-ring ring-2"></div>
+          <div class="orb-ring ring-3"></div>
+          <canvas id="faceCanvas" width="380" height="380"></canvas>
+          <div class="orb-scan"></div>
+        </div>
+      </div>
+
+      <div class="home-right">
+        <div class="right-card focus-card">
+          <div class="card-header"><span class="card-bar"></span> CURRENT FOCUS <span class="card-icon">✦</span></div>
+          <ul class="focus-list">
+            <li>ARTIFICIAL INTELLIGENCE</li>
+            <li>MACHINE LEARNING</li>
+            <li>GENERATIVE AI</li>
+            <li>SYSTEM DESIGN</li>
+            <li>DATA PIPELINES</li>
+          </ul>
+        </div>
+        <div class="right-card quote-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote-text">The future belongs to the curious.</p>
+          <p class="quote-sub accent">Keep Exploring.</p>
+        </div>
+        <div class="right-card think-card">
+          <div class="think-label">THINK • CODE • INNOVATE</div>
+          <div class="waveform">
+            <svg viewBox="0 0 120 30" fill="none">
+              <polyline points="0,15 4,8 8,22 12,5 16,25 20,10 24,18 28,6 32,20 36,12 40,16 44,7 48,23 52,11 56,19 60,4 64,24 68,13 72,17 76,9 80,21 84,14 88,8 92,22 96,6 100,20 104,12 108,18 112,7 116,15 120,10" stroke="#6366f1" stroke-width="1.2" fill="none"/>
+            </svg>
+          </div>
+          <div class="think-sub">TELLS A STORY</div>
+        </div>
+      </div>
+
+      <!-- TECH STACK -->
+      <div class="tech-stack-bar">
+        <div class="tech-bar-title">✦ TECH STACK &amp; EXPERTISE ✦</div>
+        <div class="tech-icons-row">
+          <div class="tech-icon-item"><div class="tech-icon python">🐍</div><span>PYTHON</span></div>
+          <div class="tech-icon-item"><div class="tech-icon java">☕</div><span>JAVA</span></div>
+          <div class="tech-icon-item"><div class="tech-icon ai">🧠</div><span>AI</span></div>
+          <div class="tech-icon-item"><div class="tech-icon ml">📊</div><span>ML</span></div>
+          <div class="tech-icon-item"><div class="tech-icon genai">✨</div><span>GENAI</span></div>
+          <div class="tech-icon-item"><div class="tech-icon lc">🔗</div><span>LANGCHAIN</span></div>
+          <div class="tech-icon-item"><div class="tech-icon pipe">⚙️</div><span>PIPELINE<br/>DEVELOPMENT</span></div>
+          <div class="tech-icon-item"><div class="tech-icon kafka">📡</div><span>KAFKA</span></div>
+          <div class="tech-icon-item"><div class="tech-icon sql">🗄️</div><span>SQL</span></div>
+          <div class="tech-icon-item"><div class="tech-icon sqlal">🔮</div><span>SQL<br/>ALCHEMY</span></div>
+          <div class="tech-icon-item"><div class="tech-icon fastapi">⚡</div><span>FASTAPI</span></div>
+          <div class="tech-icon-item"><div class="tech-icon powerbi">📈</div><span>POWERBI</span></div>
+          <div class="tech-icon-item"><div class="tech-icon aws">☁️</div><span>AWS</span></div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <span>SCROLL TO DISCOVER</span>
+        <div class="mouse-icon"><div class="mouse-wheel"></div></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT -->
+    <section id="about" class="section section-about">
+      <div class="section-header">
+        <span class="section-num">02.</span>
+        <h2 class="section-title">ABOUT ME</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-intro">I'm <span class="accent">Kartikey Yadav</span>, an AI/ML Engineer passionate about building intelligent systems that solve real-world problems.</p>
+          <p>With expertise spanning Machine Learning, Generative AI, and Data Engineering, I craft solutions at the cutting edge of technology. From designing multi-agent AI systems to building scalable data pipelines, I thrive in complex problem spaces.</p>
+          <p>Currently exploring the frontiers of LLMs, RAG architectures, and autonomous AI systems — always pushing boundaries.</p>
+          <div class="about-stats">
+            <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Experience</span></div>
+            <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Projects Built</span></div>
+            <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Technologies</span></div>
+          </div>
+        </div>
+        <div class="about-card-panel">
+          <div class="info-card">
+            <div class="info-card-label">EDUCATION</div>
+            <div class="info-card-value">B.Tech Computer Science</div>
+            <div class="info-card-sub">Specialization in AI/ML</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-label">LOCATION</div>
+            <div class="info-card-value">India 🇮🇳</div>
+            <div class="info-card-sub">Open to Remote Opportunities</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-label">FOCUS</div>
+            <div class="info-card-value">Gen AI & LLM Systems</div>
+            <div class="info-card-sub">Building the future of AI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS -->
+    <section id="skills" class="section section-skills">
+      <div class="section-header">
+        <span class="section-num">03.</span>
+        <h2 class="section-title">SKILLS</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-cat-title">AI / ML</h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item"><span>Machine Learning</span><div class="bar"><div class="bar-fill" style="--pct:92%"></div></div></div>
+            <div class="skill-bar-item"><span>Deep Learning</span><div class="bar"><div class="bar-fill" style="--pct:85%"></div></div></div>
+            <div class="skill-bar-item"><span>Generative AI</span><div class="bar"><div class="bar-fill" style="--pct:90%"></div></div></div>
+            <div class="skill-bar-item"><span>LangChain / RAG</span><div class="bar"><div class="bar-fill" style="--pct:88%"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">DATA ENGINEERING</h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item"><span>Apache Kafka</span><div class="bar"><div class="bar-fill" style="--pct:80%"></div></div></div>
+            <div class="skill-bar-item"><span>SQL / SQLAlchemy</span><div class="bar"><div class="bar-fill" style="--pct:88%"></div></div></div>
+            <div class="skill-bar-item"><span>Data Pipelines</span><div class="bar"><div class="bar-fill" style="--pct:85%"></div></div></div>
+            <div class="skill-bar-item"><span>Power BI</span><div class="bar"><div class="bar-fill" style="--pct:78%"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">BACKEND / CLOUD</h3>
+          <div class="skill-bars">
+            <div class="skill-bar-item"><span>Python</span><div class="bar"><div class="bar-fill" style="--pct:95%"></div></div></div>
+            <div class="skill-bar-item"><span>FastAPI</span><div class="bar"><div class="bar-fill" style="--pct:87%"></div></div></div>
+            <div class="skill-bar-item"><span>Java</span><div class="bar"><div class="bar-fill" style="--pct:75%"></div></div></div>
+            <div class="skill-bar-item"><span>AWS</span><div class="bar"><div class="bar-fill" style="--pct:80%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PROJECTS -->
+    <section id="projects" class="section section-projects">
+      <div class="section-header">
+        <span class="section-num">04.</span>
+        <h2 class="section-title">PROJECTS</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-num">01</div>
+          <div class="project-tag">GEN AI</div>
+          <h3 class="project-name">Multi-Agent AI Orchestration</h3>
+          <p class="project-desc">A multi-layer AI orchestration system using LangChain and LLMs for autonomous task execution and decision-making pipelines.</p>
+          <div class="project-tech"><span>LangChain</span><span>Python</span><span>FastAPI</span><span>OpenAI</span></div>
+          <a href="#" class="project-link">VIEW PROJECT →</a>
+        </div>
+        <div class="project-card featured">
+          <div class="project-num">02</div>
+          <div class="project-tag">ML SYSTEM</div>
+          <h3 class="project-name">AI Inventory Management</h3>
+          <p class="project-desc">Intelligent inventory prediction system leveraging ML models for demand forecasting, anomaly detection, and automated reordering.</p>
+          <div class="project-tech"><span>Python</span><span>Kafka</span><span>SQL</span><span>FastAPI</span></div>
+          <a href="#" class="project-link">VIEW PROJECT →</a>
+        </div>
+        <div class="project-card">
+          <div class="project-num">03</div>
+          <div class="project-tag">RAG SYSTEM</div>
+          <h3 class="project-name">Kovidam Platform</h3>
+          <p class="project-desc">Enterprise-grade RAG platform for intelligent document understanding, semantic search, and AI-powered Q&A at scale.</p>
+          <div class="project-tech"><span>RAG</span><span>LangChain</span><span>AWS</span><span>FastAPI</span></div>
+          <a href="#" class="project-link">VIEW PROJECT →</a>
+        </div>
+        <div class="project-card">
+          <div class="project-num">04</div>
+          <div class="project-tag">DATA PIPELINE</div>
+          <h3 class="project-name">Real-Time Data Pipeline</h3>
+          <p class="project-desc">High-throughput streaming data pipeline with Kafka, real-time analytics, and automated alerting for enterprise data systems.</p>
+          <div class="project-tech"><span>Kafka</span><span>Python</span><span>SQL</span><span>PowerBI</span></div>
+          <a href="#" class="project-link">VIEW PROJECT →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: EXPERIENCE -->
+    <section id="experience" class="section section-experience">
+      <div class="section-header">
+        <span class="section-num">05.</span>
+        <h2 class="section-title">EXPERIENCE</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024 — PRESENT</div>
+            <h3 class="timeline-role">AI/ML Engineer</h3>
+            <div class="timeline-company">Tech Organization</div>
+            <p>Building production-grade AI systems, designing multi-agent LLM pipelines, and architecting scalable ML infrastructure.</p>
+            <div class="timeline-tags"><span>Gen AI</span><span>LangChain</span><span>FastAPI</span><span>AWS</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2023 — 2024</div>
+            <h3 class="timeline-role">Data Engineer</h3>
+            <div class="timeline-company">Data-Driven Company</div>
+            <p>Developed high-performance data pipelines, real-time streaming systems with Kafka, and BI dashboards with Power BI.</p>
+            <div class="timeline-tags"><span>Kafka</span><span>SQL</span><span>Python</span><span>PowerBI</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2022 — 2023</div>
+            <h3 class="timeline-role">ML Research Intern</h3>
+            <div class="timeline-company">Research Lab</div>
+            <p>Researched deep learning architectures, built NLP models, and contributed to published findings in AI/ML domain.</p>
+            <div class="timeline-tags"><span>PyTorch</span><span>NLP</span><span>Python</span><span>Research</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: RESEARCH -->
+    <section id="research" class="section section-research">
+      <div class="section-header">
+        <span class="section-num">06.</span>
+        <h2 class="section-title">RESEARCH</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="research-icon">🔬</div>
+          <h3>LLM Alignment & Safety</h3>
+          <p>Exploring techniques for aligning large language models with human values and ensuring safe deployment in production systems.</p>
+          <div class="research-tag">ONGOING</div>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">🧬</div>
+          <h3>Autonomous AI Agents</h3>
+          <p>Investigating multi-agent frameworks for complex task decomposition, tool use, and emergent collaborative behavior in AI systems.</p>
+          <div class="research-tag">PUBLISHED</div>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">📡</div>
+          <h3>Real-Time ML Inference</h3>
+          <p>Optimizing ML model serving for sub-millisecond inference at scale using streaming architectures and edge deployment strategies.</p>
+          <div class="research-tag">IN PROGRESS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: CONTACT -->
+    <section id="contact" class="section section-contact">
+      <div class="section-header">
+        <span class="section-num">07.</span>
+        <h2 class="section-title">CONTACT</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-content">
+        <p class="contact-subtitle">Ready to build something extraordinary?</p>
+        <h3 class="contact-cta">LET'S CONNECT<span class="accent">.</span></h3>
+        <div class="contact-links">
+          <a href="mailto:kartikey@example.com" class="contact-btn" id="email-btn">
+            <span>📧</span> EMAIL ME
+          </a>
+          <a href="https://linkedin.com/in/kartikeyayadav" target="_blank" class="contact-btn" id="linkedin-btn">
+            <span>💼</span> LINKEDIN
+          </a>
+          <a href="https://github.com/kartikeyayadav" target="_blank" class="contact-btn" id="github-btn">
+            <span>🐙</span> GITHUB
+          </a>
+        </div>
+        <div class="contact-footer">
+          <p>© 2026 Kartikey Yadav · Built with passion &amp; code</p>
+          <p class="contact-footer-sub">KY<span class="accent">.</span> — AI &amp; ML Engineer</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
