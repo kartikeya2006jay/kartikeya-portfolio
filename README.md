@@ -1,22 +1,19 @@
-<div align="center">
+<img src="assets/avatar.png" width="180" height="180" align="right" style="border-radius: 50%; border: 3px solid #f5a623; box-shadow: 0 0 30px rgba(245, 166, 35, 0.4); margin-left: 20px;" alt="Kartikeya AI Avatar" />
 
-<img src="assets/avatar.png" width="240" height="240" style="border-radius: 50%; border: 4px solid #f5a623; margin-top: 20px; margin-bottom: 20px; box-shadow: 0 0 50px rgba(245, 166, 35, 0.6);" alt="Kartikeya AI Avatar" />
+# 🌌 KARTIKEYA YADAV
+### Digital Identity & Portfolio
 
-# 🌌 KARTIKEYA YADAV — Digital Identity
+**AI Systems Engineer • GenAI Builder • Entrepreneur**
+<br>*Building intelligent systems that reason, learn, and solve real-world problems.*
 
-<p align="center">
+<p>
   <a href="#"><img src="https://img.shields.io/badge/Status-Available_for_Opportunities-f5a623?style=for-the-badge&logo=status" alt="Status"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Role-AI_Systems_Engineer-000000?style=for-the-badge&logo=ai" alt="Role"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Tech-Vanilla_JS_&_CSS-0a0a0a?style=for-the-badge&logo=javascript" alt="Tech"/></a>
 </p>
 
-### AI Systems Engineer • GenAI Builder • Entrepreneur
+[**🚀 Explore The Live 3D Showcase**](./showcase.html) 
 
-*Building intelligent systems that reason, learn, and solve real-world problems.*
-
-[**Explore The Live 3D Showcase (showcase.html)**](./showcase.html) 
-
-</div>
+<div style="clear: both;"></div>
 
 ---
 
