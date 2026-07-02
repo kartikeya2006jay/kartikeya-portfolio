@@ -65,6 +65,9 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
 .hero-name{font-family:var(--font-display);font-weight:800;font-size:clamp(3.5rem,8vw,7.5rem);line-height:.95;letter-spacing:-.02em;margin-bottom:1rem;position:relative}
 .hero-name-line{display:block;text-transform:uppercase}
+#hn1{animation:catch-fire 0.5s ease-in 2.5s forwards, burn 0.15s infinite alternate 3s}
+@keyframes catch-fire{0%{color:var(--text);text-shadow:none}100%{color:#fff;text-shadow:0 -2px 4px #ff0, 0 -6px 12px #ff8000, 0 -14px 20px #ff0000, 0 -22px 30px #8b0000}}
+@keyframes burn{0%{text-shadow:0 -2px 4px #ff0, -2px -6px 12px #ff8000, 2px -14px 20px #ff0000, -2px -22px 30px #8b0000}33%{text-shadow:0 -3px 6px #ff0, 2px -8px 14px #ff8000, -2px -16px 22px #ff0000, 2px -24px 32px #8b0000}66%{text-shadow:0 -1px 3px #ff0, -1px -5px 10px #ff8000, 1px -12px 18px #ff0000, -1px -20px 28px #8b0000}100%{text-shadow:0 -4px 7px #ff0, 3px -10px 16px #ff8000, -3px -18px 25px #ff0000, 3px -26px 35px #8b0000}}
 .hero-name-line.gold{color:var(--gold)}
 .hero-titles{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(245,166,35,0.2)}
 .hero-title-item{font-family:var(--font-mono);font-size:clamp(.65rem,.9vw,.85rem);letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
@@ -86,15 +89,17 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-
 
 .hero-right{flex:1;position:relative;display:flex;justify-content:center;align-items:center;height:100vh}
 .hr-brain-container{position:relative;width:600px;height:600px}
-.hr-brain-img{width:100%;height:100%;object-fit:contain}
+.hr-brain-img{width:100%;height:100%;object-fit:contain;opacity:0;animation:brain-appear 1s ease-out 1.3s forwards}
+@keyframes brain-appear{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
 .hr-callout{position:absolute;display:flex;align-items:flex-start;gap:0.8rem;background:rgba(10,10,10,0.8);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);padding:1rem;border-radius:12px;width:240px;z-index:3;transition:all 0.3s}
-.hr-callout:hover{border-color:var(--gold);transform:translateY(-5px)}
+.hr-callout:hover{border-color:var(--gold);transform:translateY(-5px) !important}
 .hrc-icon{font-size:1.2rem;background:rgba(245,166,35,0.1);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;border:1px solid rgba(245,166,35,0.3);flex-shrink:0}
 .hrc-text strong{display:block;font-size:0.85rem;color:var(--text);margin-bottom:0.2rem}
 .hrc-text{font-size:0.7rem;color:var(--muted);line-height:1.4}
-.hr-c1{top:15%;right:-50px}
-.hr-c2{top:45%;left:-80px}
-.hr-c3{bottom:25%;right:-30px}
+.hr-c1{top:15%;right:-50px;opacity:0;animation:callout-appear 0.5s ease-out 1.6s forwards}
+.hr-c2{top:45%;left:-80px;opacity:0;animation:callout-appear 0.5s ease-out 1.9s forwards}
+.hr-c3{bottom:25%;right:-30px;opacity:0;animation:callout-appear 0.5s ease-out 2.2s forwards}
+@keyframes callout-appear{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
 
 .hr-code-block{position:absolute;bottom:80px;left:-50px;background:#0d0d0d;border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:1.5rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);z-index:4;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
 .hr-code-block code{line-height:1.6}
