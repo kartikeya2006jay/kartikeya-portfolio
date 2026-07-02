@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="assets/readme_banner.png" width="100%" style="border-radius: 12px; margin-bottom: 20px;" alt="Kartikeya Portfolio Banner" />
-
-<img src="assets/avatar.png" width="120" height="120" style="border-radius: 50%; border: 3px solid #f5a623; margin-bottom: 10px; box-shadow: 0 0 20px rgba(245, 166, 35, 0.4);" alt="Kartikeya AI Avatar" />
+<img src="assets/avatar.png" width="240" height="240" style="border-radius: 50%; border: 4px solid #f5a623; margin-top: 20px; margin-bottom: 20px; box-shadow: 0 0 50px rgba(245, 166, 35, 0.6);" alt="Kartikeya AI Avatar" />
 
 # 🌌 KARTIKEYA YADAV — Digital Identity
 
