@@ -1,230 +1,208 @@
-// ─── PARTICLE CANVAS ───────────────────────────────────────────────────────
-const pCanvas = document.getElementById('particleCanvas');
-const pCtx = pCanvas.getContext('2d');
-let particles = [], W, H;
+/* ====== PARTICLES CANVAS ====== */
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
 
-function resizeCanvas() {
-  W = pCanvas.width = window.innerWidth;
-  H = pCanvas.height = window.innerHeight;
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+resize();
+window.addEventListener('resize', resize);
 
 class Particle {
   constructor() { this.reset(); }
   reset() {
-    this.x = Math.random() * W;
-    this.y = Math.random() * H;
-    this.r = Math.random() * 1.5 + 0.3;
-    this.vx = (Math.random() - 0.5) * 0.3;
-    this.vy = (Math.random() - 0.5) * 0.3;
-    this.alpha = Math.random() * 0.6 + 0.1;
-    this.color = Math.random() > 0.7 ? '#6366f1' : '#ffffff';
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 1.2 + 0.2;
+    this.speedX = (Math.random() - 0.5) * 0.3;
+    this.speedY = (Math.random() - 0.5) * 0.3;
+    this.opacity = Math.random() * 0.4 + 0.05;
+    this.gold = Math.random() > 0.85;
   }
   update() {
-    this.x += this.vx; this.y += this.vy;
-    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
   }
   draw() {
-    pCtx.beginPath();
-    pCtx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-    pCtx.fillStyle = this.color;
-    pCtx.globalAlpha = this.alpha;
-    pCtx.fill();
-    pCtx.globalAlpha = 1;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.gold
+      ? `rgba(245,166,35,${this.opacity})`
+      : `rgba(180,180,180,${this.opacity * 0.4})`;
+    ctx.fill();
   }
 }
 
-for (let i = 0; i < 180; i++) particles.push(new Particle());
+for (let i = 0; i < 120; i++) particles.push(new Particle());
 
 function drawConnections() {
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
+  const golden = particles.filter(p => p.gold);
+  for (let i = 0; i < golden.length; i++) {
+    for (let j = i + 1; j < golden.length; j++) {
+      const dx = golden[i].x - golden[j].x;
+      const dy = golden[i].y - golden[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100) {
-        pCtx.beginPath();
-        pCtx.moveTo(particles[i].x, particles[i].y);
-        pCtx.lineTo(particles[j].x, particles[j].y);
-        pCtx.strokeStyle = `rgba(99,102,241,${0.15 * (1 - dist / 100)})`;
-        pCtx.lineWidth = 0.5;
-        pCtx.stroke();
+      if (dist < 160) {
+        ctx.beginPath();
+        ctx.moveTo(golden[i].x, golden[i].y);
+        ctx.lineTo(golden[j].x, golden[j].y);
+        ctx.strokeStyle = `rgba(245,166,35,${0.06 * (1 - dist / 160)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
       }
     }
   }
 }
 
 function animateParticles() {
-  pCtx.clearRect(0, 0, W, H);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   particles.forEach(p => { p.update(); p.draw(); });
   drawConnections();
   requestAnimationFrame(animateParticles);
 }
 animateParticles();
 
-// ─── FACE CONSTELLATION CANVAS ─────────────────────────────────────────────
-const fCanvas = document.getElementById('faceCanvas');
-const fCtx = fCanvas.getContext('2d');
-const fW = fCanvas.width, fH = fCanvas.height;
+/* ====== LOADER ====== */
+const lines = ['l1','l2','l3','l4'];
+const bar = document.getElementById('lb');
+const welcome = document.getElementById('lw');
+let progress = 0;
 
-// Generate constellation nodes that form a face silhouette
-const facePoints = [];
-function makeFacePoints() {
-  const cx = fW / 2, cy = fH / 2;
-  // Head outline
-  for (let a = 0; a < Math.PI * 2; a += 0.18) {
-    const rx = 140 + Math.sin(a * 3) * 8;
-    const ry = 160 + Math.cos(a * 2) * 10;
-    facePoints.push({
-      x: cx + rx * Math.cos(a) + (Math.random() - 0.5) * 20,
-      y: cy + ry * Math.sin(a) + (Math.random() - 0.5) * 20,
-      r: Math.random() * 2 + 0.8, alpha: Math.random() * 0.8 + 0.2,
-      vx: (Math.random() - 0.5) * 0.2, vy: (Math.random() - 0.5) * 0.2,
-      baseX: 0, baseY: 0
-    });
-  }
-  // Interior face features
-  const features = [
-    // eyes
-    ...Array.from({length:12}, (_,i) => ({ x: cx - 50 + Math.cos(i/12*Math.PI*2)*20, y: cy - 40 + Math.sin(i/12*Math.PI*2)*10 })),
-    ...Array.from({length:12}, (_,i) => ({ x: cx + 50 + Math.cos(i/12*Math.PI*2)*20, y: cy - 40 + Math.sin(i/12*Math.PI*2)*10 })),
-    // nose
-    ...Array.from({length:8}, (_,i) => ({ x: cx + (i-4)*6, y: cy + i*8 })),
-    // mouth
-    ...Array.from({length:16}, (_,i) => ({ x: cx - 60 + i*8, y: cy + 60 + Math.sin(i/15*Math.PI)*15 })),
-    // scatter fill
-    ...Array.from({length:60}, () => ({ x: cx + (Math.random()-0.5)*200, y: cy + (Math.random()-0.5)*240 }))
-  ];
-  features.forEach(f => facePoints.push({
-    x: f.x + (Math.random()-0.5)*8, y: f.y + (Math.random()-0.5)*8,
-    r: Math.random() * 1.5 + 0.5, alpha: Math.random() * 0.9 + 0.1,
-    vx: (Math.random()-0.5)*0.15, vy: (Math.random()-0.5)*0.15
-  }));
-  facePoints.forEach(p => { p.baseX = p.x; p.baseY = p.y; });
-}
-makeFacePoints();
-
-let faceAngle = 0;
-function drawFace() {
-  fCtx.clearRect(0, 0, fW, fH);
-  faceAngle += 0.005;
-  const cx = fW/2, cy = fH/2;
-
-  // Glow background
-  const grd = fCtx.createRadialGradient(cx, cy, 0, cx, cy, 180);
-  grd.addColorStop(0, 'rgba(99,102,241,0.12)');
-  grd.addColorStop(1, 'rgba(0,0,0,0)');
-  fCtx.fillStyle = grd;
-  fCtx.fillRect(0, 0, fW, fH);
-
-  // Draw connections between close points
-  for (let i = 0; i < facePoints.length; i++) {
-    for (let j = i+1; j < facePoints.length; j++) {
-      const dx = facePoints[i].x - facePoints[j].x;
-      const dy = facePoints[i].y - facePoints[j].y;
-      const d = Math.sqrt(dx*dx + dy*dy);
-      if (d < 45) {
-        fCtx.beginPath();
-        fCtx.moveTo(facePoints[i].x, facePoints[i].y);
-        fCtx.lineTo(facePoints[j].x, facePoints[j].y);
-        fCtx.strokeStyle = `rgba(99,102,241,${0.25*(1-d/45)})`;
-        fCtx.lineWidth = 0.5;
-        fCtx.stroke();
-      }
-    }
-  }
-
-  // Draw points
-  facePoints.forEach(p => {
-    p.x = p.baseX + Math.sin(faceAngle + p.baseY*0.01)*3;
-    p.y = p.baseY + Math.cos(faceAngle + p.baseX*0.01)*2;
-    fCtx.beginPath();
-    fCtx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    const bright = Math.sin(faceAngle*2 + p.baseX*0.05) * 0.3 + 0.7;
-    fCtx.fillStyle = `rgba(180,180,255,${p.alpha * bright})`;
-    fCtx.fill();
-    // Glow on bright points
-    if (p.r > 1.5) {
-      fCtx.beginPath();
-      fCtx.arc(p.x, p.y, p.r*3, 0, Math.PI*2);
-      fCtx.fillStyle = `rgba(99,102,241,${p.alpha*0.15*bright})`;
-      fCtx.fill();
-    }
+function runLoader() {
+  lines.forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      el.classList.add('show');
+      if (i > 0) document.getElementById(lines[i-1]).classList.add('done');
+    }, i * 600);
   });
 
-  requestAnimationFrame(drawFace);
-}
-drawFace();
+  const barInterval = setInterval(() => {
+    progress += 1.2;
+    bar.style.width = Math.min(progress, 100) + '%';
+    if (progress >= 100) clearInterval(barInterval);
+  }, 40);
 
-// ─── NAVBAR ACTIVE LINK ON SCROLL ─────────────────────────────────────────
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-link');
+  setTimeout(() => {
+    document.getElementById('l4').classList.add('done');
+    welcome.classList.add('show');
+  }, 2600);
+
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+    document.body.style.overflow = 'auto';
+    startHeroAnimations();
+  }, 3800);
+}
+
+document.body.style.overflow = 'hidden';
+runLoader();
+
+/* ====== HERO ANIMATIONS ====== */
+function startHeroAnimations() {
+  setTimeout(() => document.getElementById('hero-slash').classList.add('active'), 300);
+}
+
+/* ====== NAV SCROLL ====== */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ====== HAMBURGER ====== */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mob-link').forEach(link => {
+  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+
+/* ====== SCROLL REVEAL ====== */
+const revealEls = document.querySelectorAll(
+  '.section-heading,.about-para,.about-mission,.philosophy-grid,.mission-card,.exploring-card,.loves-card,.stack-cat,.project-card,.ach-item,.tl-item,.terminal-wrap,.section-label'
+);
+revealEls.forEach(el => el.classList.add('reveal'));
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const id = entry.target.id;
-      const link = document.querySelector(`.nav-link[href="#${id}"]`);
-      if (link) link.classList.add('active');
-    }
-  });
-}, { threshold: 0.4 });
-
-sections.forEach(s => observer.observe(s));
-
-// ─── SCROLL REVEAL ─────────────────────────────────────────────────────────
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Trigger skill bar animations
-      const skillCat = entry.target.closest('.skill-category');
-      if (skillCat) skillCat.classList.add('visible');
+      // Animate skill bars when stack section visible
+      if (entry.target.classList.contains('stack-cat')) {
+        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(() => { bar.style.width = w; }, 100);
+        });
+      }
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-document.querySelectorAll('.project-card,.info-card,.timeline-item,.research-card,.skill-category,.about-text,.about-card-panel').forEach(el => {
-  el.classList.add('reveal');
-  revealObs.observe(el);
-});
+revealEls.forEach(el => observer.observe(el));
 
-// Also trigger skill bars when section is visible
-const skillObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-category').forEach(c => c.classList.add('visible'));
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('.section-skills').forEach(s => skillObs.observe(s));
+/* ====== QUOTE ROTATOR ====== */
+const quotes = [
+  "The future belongs to engineers who never stop learning.",
+  "Curiosity is my operating system.",
+  "AI isn't magic. It's engineering.",
+  "Build. Break. Learn. Repeat.",
+  "Every intelligent system starts with a curious mind."
+];
+let qIdx = 0;
+const qText = document.getElementById('quote-text');
+const qDots = document.querySelectorAll('.qdot');
 
-// ─── NAV SCROLL INDICATOR ─────────────────────────────────────────────────
-window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if (window.scrollY > 20) navbar.style.background = 'rgba(5,5,8,0.97)';
-  else navbar.style.background = 'rgba(5,5,8,0.85)';
-});
-
-// ─── TYPING EFFECT on hero name ──────────────────────────────────────────
-const heroName = document.querySelector('.hero-name');
-if (heroName) {
-  const text = heroName.innerHTML;
-  heroName.style.opacity = '1';
-  // Already rendered, just add animated underline effect via CSS
+function setQuote(i) {
+  qText.style.opacity = '0';
+  setTimeout(() => {
+    qText.textContent = quotes[i];
+    qText.style.opacity = '1';
+  }, 400);
+  qDots.forEach((d, j) => d.classList.toggle('active', j === i));
+  qIdx = i;
 }
 
-// ─── CURSOR GLOW ─────────────────────────────────────────────────────────
-const cursor = document.createElement('div');
-cursor.style.cssText = `position:fixed;width:20px;height:20px;background:rgba(99,102,241,0.3);border-radius:50%;pointer-events:none;z-index:9999;transition:transform 0.1s;mix-blend-mode:screen;`;
-document.body.appendChild(cursor);
-let mx = 0, my = 0;
-document.addEventListener('mousemove', e => {
-  mx = e.clientX - 10; my = e.clientY - 10;
-  cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
+qDots.forEach(dot => {
+  dot.addEventListener('click', () => setQuote(parseInt(dot.dataset.i)));
 });
-document.addEventListener('mousedown', () => cursor.style.transform = 'scale(2)');
-document.addEventListener('mouseup', () => cursor.style.transform = 'scale(1)');
+
+setInterval(() => {
+  setQuote((qIdx + 1) % quotes.length);
+}, 4000);
+
+/* ====== TERMINAL ANIMATION ====== */
+function runTerminal() {
+  const cmd = document.getElementById('t-cmd');
+  const cursor = document.getElementById('t-cursor');
+  const output = document.getElementById('t-output');
+  const text = 'connect kartikeya';
+  let i = 0;
+  const typeInterval = setInterval(() => {
+    cmd.textContent += text[i];
+    i++;
+    if (i >= text.length) {
+      clearInterval(typeInterval);
+      setTimeout(() => {
+        cursor.style.display = 'none';
+        output.style.display = 'block';
+      }, 600);
+    }
+  }, 80);
+}
+
+// Re-run terminal when contact section enters view
+const terminalSection = document.getElementById('contact');
+let terminalRan = false;
+const termObs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting && !terminalRan) {
+    terminalRan = true;
+    runTerminal();
+  }
+}, { threshold: 0.3 });
+if (terminalSection) termObs.observe(terminalSection);

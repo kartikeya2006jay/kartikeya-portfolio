@@ -3,345 +3,442 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kartikey Yadav | AI & ML Engineer</title>
-  <meta name="description" content="Kartikey Yadav — AI & ML Engineer, Problem Solver, Tech Explorer. Portfolio showcasing cutting-edge AI/ML projects." />
+  <title>Kartikeya Yadav — AI Systems Engineer · GenAI Builder · Entrepreneur</title>
+  <meta name="description" content="Kartikeya Yadav is an AI Systems Engineer, GenAI Builder, and Entrepreneur building intelligent systems that reason, learn, and solve real-world problems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- CANVAS PARTICLE BG -->
-  <canvas id="particleCanvas"></canvas>
+  <!-- LOADER -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-line" id="l1">Initializing Neural Interface...</div>
+      <div class="loader-line" id="l2">Loading Intelligence Core...</div>
+      <div class="loader-line" id="l3">Connecting Knowledge Graph...</div>
+      <div class="loader-line" id="l4">Launching Autonomous Systems...</div>
+      <div class="loader-welcome" id="lw">
+        <span class="loader-welcome-sub">Welcome to the Mind of</span>
+        <span class="loader-welcome-name">KARTIKEYA YADAV</span>
+      </div>
+      <div class="loader-bar-wrap"><div class="loader-bar" id="lb"></div></div>
+    </div>
+  </div>
 
   <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-logo">KY<span class="dot">.</span></div>
+  <nav class="nav" id="nav">
+    <div class="nav-logo">KY<span class="nav-dot">.</span></div>
     <ul class="nav-links">
-      <li><a href="#home" class="nav-link active"><span class="nav-num">01.</span>HOME</a></li>
-      <li><a href="#about" class="nav-link"><span class="nav-num">02.</span>ABOUT</a></li>
-      <li><a href="#skills" class="nav-link"><span class="nav-num">03.</span>SKILLS</a></li>
-      <li><a href="#projects" class="nav-link"><span class="nav-num">04.</span>PROJECTS</a></li>
-      <li><a href="#experience" class="nav-link"><span class="nav-num">05.</span>EXPERIENCE</a></li>
-      <li><a href="#research" class="nav-link"><span class="nav-num">06.</span>RESEARCH</a></li>
-      <li><a href="#contact" class="nav-link"><span class="nav-num">07.</span>CONTACT</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#stack" class="nav-link">Stack</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#achievements" class="nav-link">Achievements</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
-    <a href="#contact" class="btn-connect">LET'S CONNECT <span>▶</span></a>
+    <a href="assets/resume.pdf" download class="nav-cta" id="nav-resume">Resume ↗</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- LEFT SIDEBAR -->
-  <aside class="sidebar-left">
-    <div class="sidebar-icon" title="Network"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-    <div class="sidebar-status"><span class="status-dot"></span>ONLINE</div>
-    <div class="sidebar-icon" title="AI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-    <div class="sidebar-icon" title="Code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-    <div class="sidebar-icon" title="3D"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-    <div class="sidebar-icon" title="Terminal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
-    <div class="sidebar-sys">
-      <div class="sys-label">SYSTEM<br/>STATUS</div>
-      <div class="sys-value">OPTIMAL</div>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#about" class="mob-link">About</a></li>
+      <li><a href="#stack" class="mob-link">Stack</a></li>
+      <li><a href="#projects" class="mob-link">Projects</a></li>
+      <li><a href="#achievements" class="mob-link">Achievements</a></li>
+      <li><a href="#contact" class="mob-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- CANVAS PARTICLES -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-orb orb1"></div>
+    <div class="hero-bg-orb orb2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Available for Opportunities</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="hero-name-line" id="hn1">KARTIKEYA</span>
+        <span class="hero-name-line gold" id="hn2">YADAV</span>
+        <div class="hero-slash" id="hero-slash"></div>
+      </h1>
+      <div class="hero-titles">
+        <span class="hero-title-item" id="ht1">AI SYSTEMS ENGINEER</span>
+        <span class="hero-title-sep">·</span>
+        <span class="hero-title-item" id="ht2">GENAI BUILDER</span>
+        <span class="hero-title-sep">·</span>
+        <span class="hero-title-item" id="ht3">ENTREPRENEUR</span>
+      </div>
+      <p class="hero-desc">
+        I build intelligent systems that reason, learn, and solve real-world problems.<br/>
+        From LLM agents and distributed AI pipelines to scalable backend systems.<br/>
+        <em>Currently exploring the future of AI.</em>
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary" id="btn-explore">
+          <span>Explore My Universe</span>
+          <div class="btn-glow"></div>
+        </a>
+        <a href="assets/resume.pdf" download class="btn-secondary" id="btn-resume">
+          Download Resume ↓
+        </a>
+      </div>
     </div>
-    <div class="sidebar-wave">
-      <svg viewBox="0 0 60 20" fill="none"><polyline points="0,10 5,5 10,15 15,3 20,17 25,8 30,12 35,4 40,16 45,7 50,13 55,6 60,10" stroke="#6366f1" stroke-width="1.5" fill="none"/></svg>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
     </div>
-    <div class="sidebar-version">v 3.6.1</div>
-  </aside>
+  </section>
 
-  <!-- SECTIONS WRAPPER -->
-  <main id="main-content">
+  <!-- MARQUEE -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <span>AI Systems Engineering</span><span class="sep">◆</span>
+      <span>LLM Applications</span><span class="sep">◆</span>
+      <span>GenAI Builder</span><span class="sep">◆</span>
+      <span>Multi-Agent Systems</span><span class="sep">◆</span>
+      <span>RAG Pipelines</span><span class="sep">◆</span>
+      <span>Startup Founder</span><span class="sep">◆</span>
+      <span>Hackathon Winner</span><span class="sep">◆</span>
+      <span>LangChain · LangGraph</span><span class="sep">◆</span>
+      <span>FastAPI · Redis · Kafka</span><span class="sep">◆</span>
+      <span>AWS Certified</span><span class="sep">◆</span>
+      <span>AI Systems Engineering</span><span class="sep">◆</span>
+      <span>LLM Applications</span><span class="sep">◆</span>
+      <span>GenAI Builder</span><span class="sep">◆</span>
+      <span>Multi-Agent Systems</span><span class="sep">◆</span>
+      <span>RAG Pipelines</span><span class="sep">◆</span>
+      <span>Startup Founder</span><span class="sep">◆</span>
+      <span>Hackathon Winner</span><span class="sep">◆</span>
+      <span>LangChain · LangGraph</span><span class="sep">◆</span>
+    </div>
+  </div>
 
-    <!-- SECTION 1: HOME -->
-    <section id="home" class="section section-home">
-      <div class="home-left">
-        <p class="welcome-sub">WELCOME TO MY <span class="accent">DIGITAL UNIVERSE</span></p>
-        <h1 class="hero-name">KARTIKEY<br/>YADAV</h1>
-        <p class="hero-roles">AI <span class="bullet">•</span> ML ENGINEER <span class="bullet">•</span> PROBLEM SOLVER <span class="bullet">•</span> TECH EXPLORER</p>
-        <p class="hero-desc">Passionate about the intersection of intelligence and technology.<br/>Exploring. Learning. Innovating.<br/>Always building what's next.</p>
-        <a href="#projects" class="btn-enter"><span class="btn-arrow">&gt;</span> ENTER PORTFOLIO</a>
-      </div>
+  <!-- ABOUT -->
+  <section class="section about-section" id="about">
+    <div class="section-label">// 001 — WHO AM I?</div>
+    <div class="about-grid">
+      <div class="about-text-col">
+        <h2 class="section-heading">Who Am <span class="gold">I?</span></h2>
+        <p class="about-para">I am an AI Systems Engineer driven by curiosity and obsessed with building intelligent technology that solves meaningful problems.</p>
+        <p class="about-para">My journey revolves around <span class="highlight">Artificial Intelligence, Machine Learning, Generative AI, Distributed Systems, Backend Engineering,</span> and <span class="highlight">Large Language Models.</span></p>
+        <p class="about-para">I enjoy transforming ambitious ideas into production-ready systems — from multi-agent AI architectures and intelligent automation pipelines to scalable backend infrastructure.</p>
+        <p class="about-para">Beyond coding, I actively participate in hackathons, research emerging technologies, and continuously push myself to learn beyond the classroom.</p>
+        <p class="about-mission">My goal is simple: <span class="gold">Build technology that creates real impact.</span></p>
 
-      <div class="home-center">
-        <div class="orb-container">
-          <div class="orb-ring ring-1"></div>
-          <div class="orb-ring ring-2"></div>
-          <div class="orb-ring ring-3"></div>
-          <canvas id="faceCanvas" width="380" height="380"></canvas>
-          <div class="orb-scan"></div>
+        <div class="philosophy-grid">
+          <div class="phil-item"><span class="phil-num">01</span><span>Think Deep.</span></div>
+          <div class="phil-item"><span class="phil-num">02</span><span>Build Fast.</span></div>
+          <div class="phil-item"><span class="phil-num">03</span><span>Keep Learning.</span></div>
+          <div class="phil-item"><span class="phil-num">04</span><span>Never Stop Exploring.</span></div>
         </div>
       </div>
 
-      <div class="home-right">
-        <div class="right-card focus-card">
-          <div class="card-header"><span class="card-bar"></span> CURRENT FOCUS <span class="card-icon">✦</span></div>
-          <ul class="focus-list">
-            <li>ARTIFICIAL INTELLIGENCE</li>
-            <li>MACHINE LEARNING</li>
-            <li>GENERATIVE AI</li>
-            <li>SYSTEM DESIGN</li>
-            <li>DATA PIPELINES</li>
-          </ul>
+      <div class="about-right-col">
+        <div class="mission-card card-glow">
+          <div class="card-tag">MISSION</div>
+          <p>To engineer AI systems that <span class="gold">augment human intelligence</span> instead of replacing it.</p>
+          <p>I believe the future belongs to those who can combine software engineering, machine learning, distributed systems, and creativity.</p>
         </div>
-        <div class="right-card quote-card">
-          <div class="quote-mark">&ldquo;</div>
-          <p class="quote-text">The future belongs to the curious.</p>
-          <p class="quote-sub accent">Keep Exploring.</p>
-        </div>
-        <div class="right-card think-card">
-          <div class="think-label">THINK • CODE • INNOVATE</div>
-          <div class="waveform">
-            <svg viewBox="0 0 120 30" fill="none">
-              <polyline points="0,15 4,8 8,22 12,5 16,25 20,10 24,18 28,6 32,20 36,12 40,16 44,7 48,23 52,11 56,19 60,4 64,24 68,13 72,17 76,9 80,21 84,14 88,8 92,22 96,6 100,20 104,12 108,18 112,7 116,15 120,10" stroke="#6366f1" stroke-width="1.2" fill="none"/>
-            </svg>
-          </div>
-          <div class="think-sub">TELLS A STORY</div>
-        </div>
-      </div>
 
-      <!-- TECH STACK -->
-      <div class="tech-stack-bar">
-        <div class="tech-bar-title">✦ TECH STACK &amp; EXPERTISE ✦</div>
-        <div class="tech-icons-row">
-          <div class="tech-icon-item"><div class="tech-icon python">🐍</div><span>PYTHON</span></div>
-          <div class="tech-icon-item"><div class="tech-icon java">☕</div><span>JAVA</span></div>
-          <div class="tech-icon-item"><div class="tech-icon ai">🧠</div><span>AI</span></div>
-          <div class="tech-icon-item"><div class="tech-icon ml">📊</div><span>ML</span></div>
-          <div class="tech-icon-item"><div class="tech-icon genai">✨</div><span>GENAI</span></div>
-          <div class="tech-icon-item"><div class="tech-icon lc">🔗</div><span>LANGCHAIN</span></div>
-          <div class="tech-icon-item"><div class="tech-icon pipe">⚙️</div><span>PIPELINE<br/>DEVELOPMENT</span></div>
-          <div class="tech-icon-item"><div class="tech-icon kafka">📡</div><span>KAFKA</span></div>
-          <div class="tech-icon-item"><div class="tech-icon sql">🗄️</div><span>SQL</span></div>
-          <div class="tech-icon-item"><div class="tech-icon sqlal">🔮</div><span>SQL<br/>ALCHEMY</span></div>
-          <div class="tech-icon-item"><div class="tech-icon fastapi">⚡</div><span>FASTAPI</span></div>
-          <div class="tech-icon-item"><div class="tech-icon powerbi">📈</div><span>POWERBI</span></div>
-          <div class="tech-icon-item"><div class="tech-icon aws">☁️</div><span>AWS</span></div>
-        </div>
-      </div>
-
-      <div class="scroll-hint">
-        <span>SCROLL TO DISCOVER</span>
-        <div class="mouse-icon"><div class="mouse-wheel"></div></div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: ABOUT -->
-    <section id="about" class="section section-about">
-      <div class="section-header">
-        <span class="section-num">02.</span>
-        <h2 class="section-title">ABOUT ME</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="about-intro">I'm <span class="accent">Kartikey Yadav</span>, an AI/ML Engineer passionate about building intelligent systems that solve real-world problems.</p>
-          <p>With expertise spanning Machine Learning, Generative AI, and Data Engineering, I craft solutions at the cutting edge of technology. From designing multi-agent AI systems to building scalable data pipelines, I thrive in complex problem spaces.</p>
-          <p>Currently exploring the frontiers of LLMs, RAG architectures, and autonomous AI systems — always pushing boundaries.</p>
-          <div class="about-stats">
-            <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Experience</span></div>
-            <div class="stat"><span class="stat-num">20+</span><span class="stat-label">Projects Built</span></div>
-            <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Technologies</span></div>
+        <div class="exploring-card card-glow">
+          <div class="card-tag">CURRENTLY EXPLORING</div>
+          <div class="explore-tags">
+            <span>AI Agents</span><span>Multi-Agent Systems</span><span>RAG</span>
+            <span>LangGraph</span><span>LLM Evaluation</span><span>Reasoning Models</span>
+            <span>MCP</span><span>Vector Databases</span><span>Inference Optimization</span>
+            <span>MLOps</span><span>Agentic AI</span><span>Distributed AI</span>
           </div>
         </div>
-        <div class="about-card-panel">
-          <div class="info-card">
-            <div class="info-card-label">EDUCATION</div>
-            <div class="info-card-value">B.Tech Computer Science</div>
-            <div class="info-card-sub">Specialization in AI/ML</div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-label">LOCATION</div>
-            <div class="info-card-value">India 🇮🇳</div>
-            <div class="info-card-sub">Open to Remote Opportunities</div>
-          </div>
-          <div class="info-card">
-            <div class="info-card-label">FOCUS</div>
-            <div class="info-card-value">Gen AI & LLM Systems</div>
-            <div class="info-card-sub">Building the future of AI</div>
+
+        <div class="loves-card card-glow">
+          <div class="card-tag">WHAT I LOVE</div>
+          <div class="love-items">
+            <span>Artificial Intelligence</span><span>Large Language Models</span>
+            <span>Machine Learning</span><span>Distributed Systems</span>
+            <span>Backend Engineering</span><span>Open Source</span>
+            <span>System Design</span><span>Data Engineering</span>
+            <span>Startups</span><span>Hackathons</span>
+            <span>Research Papers</span><span>Linux</span>
+            <span>Automation</span><span>Developer Tools</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SECTION 3: SKILLS -->
-    <section id="skills" class="section section-skills">
-      <div class="section-header">
-        <span class="section-num">03.</span>
-        <h2 class="section-title">SKILLS</h2>
-        <div class="section-line"></div>
+  <!-- TECH STACK -->
+  <section class="section stack-section" id="stack">
+    <div class="section-label">// 002 — ARSENAL</div>
+    <h2 class="section-heading">Tech <span class="gold">Stack</span></h2>
+    <div class="stack-grid">
+      <div class="stack-cat card-glow">
+        <div class="stack-cat-header"><span class="stack-icon">⟨/⟩</span>Languages</div>
+        <div class="stack-items">
+          <div class="stack-item"><span>Python</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+          <div class="stack-item"><span>Java</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+          <div class="stack-item"><span>SQL</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        </div>
       </div>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3 class="skill-cat-title">AI / ML</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item"><span>Machine Learning</span><div class="bar"><div class="bar-fill" style="--pct:92%"></div></div></div>
-            <div class="skill-bar-item"><span>Deep Learning</span><div class="bar"><div class="bar-fill" style="--pct:85%"></div></div></div>
-            <div class="skill-bar-item"><span>Generative AI</span><div class="bar"><div class="bar-fill" style="--pct:90%"></div></div></div>
-            <div class="skill-bar-item"><span>LangChain / RAG</span><div class="bar"><div class="bar-fill" style="--pct:88%"></div></div></div>
+      <div class="stack-cat card-glow">
+        <div class="stack-cat-header"><span class="stack-icon">🤖</span>AI & ML</div>
+        <div class="stack-items">
+          <div class="stack-item"><span>LLMs & GenAI</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+          <div class="stack-item"><span>LangChain / LangGraph</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+          <div class="stack-item"><span>RAG Pipelines</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+          <div class="stack-item"><span>AI Agents</span><div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div></div>
+          <div class="stack-item"><span>Prompt Engineering</span><div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div></div>
+          <div class="stack-item"><span>Deep Learning</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        </div>
+      </div>
+      <div class="stack-cat card-glow">
+        <div class="stack-cat-header"><span class="stack-icon">⚡</span>Backend</div>
+        <div class="stack-items">
+          <div class="stack-item"><span>FastAPI</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+          <div class="stack-item"><span>REST APIs</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+          <div class="stack-item"><span>Redis</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+          <div class="stack-item"><span>Kafka</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+          <div class="stack-item"><span>SQLAlchemy</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        </div>
+      </div>
+      <div class="stack-cat card-glow">
+        <div class="stack-cat-header"><span class="stack-icon">🗄</span>Data</div>
+        <div class="stack-items">
+          <div class="stack-item"><span>PostgreSQL</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+          <div class="stack-item"><span>Data Pipelines / ETL</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+          <div class="stack-item"><span>Pandas / NumPy</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+          <div class="stack-item"><span>Power BI</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        </div>
+      </div>
+      <div class="stack-cat card-glow">
+        <div class="stack-cat-header"><span class="stack-icon">☁</span>Cloud & DevOps</div>
+        <div class="stack-items">
+          <div class="stack-item"><span>AWS</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+          <div class="stack-item"><span>Docker</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+          <div class="stack-item"><span>Git / GitHub</span><div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div></div>
+          <div class="stack-item"><span>Linux</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section projects-section" id="projects">
+    <div class="section-label">// 003 — FEATURED WORK</div>
+    <h2 class="section-heading">Featured <span class="gold">Projects</span></h2>
+    <div class="projects-grid">
+
+      <div class="project-card card-glow featured" id="proj-kovidam">
+        <div class="proj-number">01</div>
+        <div class="proj-tag">Co-Founded · AI Platform</div>
+        <h3 class="proj-title">Kovidam</h3>
+        <p class="proj-subtitle">AI Talent Intelligence Platform</p>
+        <p class="proj-desc">Co-founded an AI-powered hiring platform that goes beyond traditional ATS screening by evaluating GitHub, coding ability, achievements, and real technical skills to help recruiters identify exceptional talent more accurately.</p>
+        <div class="proj-tech">
+          <span>LangChain</span><span>FastAPI</span><span>AI Agents</span><span>PostgreSQL</span><span>AWS</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/kartikeya2006jay" target="_blank" class="proj-link">GitHub ↗</a>
+        </div>
+        <div class="proj-glow-orb"></div>
+      </div>
+
+      <div class="project-card card-glow" id="proj-orchestration">
+        <div class="proj-number">02</div>
+        <div class="proj-tag">AI Architecture</div>
+        <h3 class="proj-title">Multi-Agent AI Orchestration</h3>
+        <p class="proj-subtitle">Autonomous AI System</p>
+        <p class="proj-desc">Designed a four-layer autonomous AI architecture powered by LangChain and FastAPI that improves reasoning accuracy while reducing latency through intelligent agent collaboration.</p>
+        <div class="proj-tech">
+          <span>LangChain</span><span>LangGraph</span><span>FastAPI</span><span>RAG</span><span>Python</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/kartikeya2006jay" target="_blank" class="proj-link">GitHub ↗</a>
+        </div>
+        <div class="proj-glow-orb"></div>
+      </div>
+
+      <div class="project-card card-glow" id="proj-inventory">
+        <div class="proj-number">03</div>
+        <div class="proj-tag">AI Assistant · SMB</div>
+        <h3 class="proj-title">AI Inventory Management</h3>
+        <p class="proj-subtitle">Conversational AI System</p>
+        <p class="proj-desc">Built an AI assistant for small businesses that automates inventory tracking using conversational interfaces and intelligent decision making, removing the complexity from day-to-day operations.</p>
+        <div class="proj-tech">
+          <span>LLMs</span><span>FastAPI</span><span>PostgreSQL</span><span>Python</span><span>Redis</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/kartikeya2006jay" target="_blank" class="proj-link">GitHub ↗</a>
+        </div>
+        <div class="proj-glow-orb"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="section achievements-section" id="achievements">
+    <div class="section-label">// 004 — MILESTONES</div>
+    <h2 class="section-heading">Achievements & <span class="gold">Milestones</span></h2>
+    <div class="ach-timeline">
+      <div class="ach-item" data-type="win">
+        <div class="ach-icon">🏆</div>
+        <div class="ach-body">
+          <div class="ach-label">Winner</div>
+          <div class="ach-title">Auraverse Hackathon</div>
+        </div>
+      </div>
+      <div class="ach-item" data-type="runner">
+        <div class="ach-icon">🥈</div>
+        <div class="ach-body">
+          <div class="ach-label">Runner-Up</div>
+          <div class="ach-title">Mela VC Hackathon</div>
+        </div>
+      </div>
+      <div class="ach-item" data-type="finalist">
+        <div class="ach-icon">🏅</div>
+        <div class="ach-body">
+          <div class="ach-label">Finalist</div>
+          <div class="ach-title">Cardano Hackathon</div>
+        </div>
+      </div>
+      <div class="ach-item" data-type="win">
+        <div class="ach-icon">🏆</div>
+        <div class="ach-body">
+          <div class="ach-label">Winner</div>
+          <div class="ach-title">CBSE Science Competition</div>
+        </div>
+      </div>
+      <div class="ach-item" data-type="cert">
+        <div class="ach-icon">☁</div>
+        <div class="ach-body">
+          <div class="ach-label">Certified</div>
+          <div class="ach-title">AWS Cloud Practitioner</div>
+        </div>
+      </div>
+      <div class="ach-item" data-type="cert">
+        <div class="ach-icon">🤖</div>
+        <div class="ach-body">
+          <div class="ach-label">Certified</div>
+          <div class="ach-title">Google AI Essentials</div>
+        </div>
+      </div>
+      <div class="ach-item" data-type="cert">
+        <div class="ach-icon">💼</div>
+        <div class="ach-body">
+          <div class="ach-label">Program</div>
+          <div class="ach-title">Goldman Sachs Forage</div>
+        </div>
+      </div>
+      <div class="ach-item" data-type="founder">
+        <div class="ach-icon">🚀</div>
+        <div class="ach-body">
+          <div class="ach-label">Co-Founder</div>
+          <div class="ach-title">Kovidam — AI Talent Platform</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTE ROTATOR -->
+    <div class="quotes-section">
+      <div class="quote-container" id="quote-container">
+        <div class="quote-marks">"</div>
+        <div class="quote-text" id="quote-text">The future belongs to engineers who never stop learning.</div>
+        <div class="quote-author">— Kartikeya Yadav</div>
+      </div>
+      <div class="quote-dots" id="quote-dots">
+        <span class="qdot active" data-i="0"></span>
+        <span class="qdot" data-i="1"></span>
+        <span class="qdot" data-i="2"></span>
+        <span class="qdot" data-i="3"></span>
+        <span class="qdot" data-i="4"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section timeline-section">
+    <div class="section-label">// 005 — JOURNEY</div>
+    <h2 class="section-heading">The <span class="gold">Timeline</span></h2>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-phase">Phase 01</span><h4>Started Programming</h4><p>Fell in love with the craft of building things with code.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-phase">Phase 02</span><h4>Discovered AI</h4><p>Realized AI is the most powerful tool humanity has ever built.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-phase">Phase 03</span><h4>Won Science Competition</h4><p>🏆 CBSE Science Competition — first recognition of building something real.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-phase">Phase 04</span><h4>Built AI Projects</h4><p>Shipped multi-agent orchestration, RAG pipelines, and LLM applications.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-phase">Phase 05</span><h4>Hackathon Finalist</h4><p>🏅 Cardano Hackathon — competing on the global stage.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-phase">Phase 06</span><h4>Hackathon Winner</h4><p>🏆 Auraverse · 🥈 Mela VC — proving ideas at speed.</p></div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><span class="tl-phase">Phase 07</span><h4>Founded Kovidam</h4><p>🚀 Co-founded an AI talent intelligence platform disrupting hiring.</p></div></div>
+      <div class="tl-item active"><div class="tl-dot pulse"></div><div class="tl-content"><span class="tl-phase">NOW</span><h4>Building AI Products</h4><p>Engineering the next generation of intelligent systems. Ongoing.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="section-label">// 006 — CONNECT</div>
+    <h2 class="section-heading">Let's <span class="gold">Connect</span></h2>
+    <div class="terminal-wrap">
+      <div class="terminal">
+        <div class="terminal-header">
+          <span class="t-dot red"></span>
+          <span class="t-dot yellow"></span>
+          <span class="t-dot green"></span>
+          <span class="t-title">kartikeya@universe:~$</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="t-line"><span class="t-prompt">$</span> <span class="t-cmd" id="t-cmd"></span><span class="t-cursor" id="t-cursor">|</span></div>
+          <div class="t-output" id="t-output" style="display:none">
+            <div class="t-resp">Connection Established. ✓</div>
+            <div class="t-resp t-gap">Routing to Kartikeya Yadav...</div>
+            <div class="t-resp gold">Status: Ready to Build Something Amazing.</div>
+            <br/>
+            <div class="t-contact-grid">
+              <a href="mailto:kartikeya2006jay@gmail.com" class="t-contact-item" id="contact-email">
+                <span class="t-ci-label">EMAIL</span>
+                <span class="t-ci-val">kartikeya2006jay@gmail.com</span>
+              </a>
+              <a href="https://linkedin.com/in/kartikeya2006" target="_blank" class="t-contact-item" id="contact-linkedin">
+                <span class="t-ci-label">LINKEDIN</span>
+                <span class="t-ci-val">linkedin.com/in/kartikeya2006</span>
+              </a>
+              <a href="https://github.com/kartikeya2006jay" target="_blank" class="t-contact-item" id="contact-github">
+                <span class="t-ci-label">GITHUB</span>
+                <span class="t-ci-val">github.com/kartikeya2006jay</span>
+              </a>
+              <a href="tel:+919720613333" class="t-contact-item" id="contact-phone">
+                <span class="t-ci-label">PHONE</span>
+                <span class="t-ci-val">+91 97206 13333</span>
+              </a>
+            </div>
           </div>
         </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">DATA ENGINEERING</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item"><span>Apache Kafka</span><div class="bar"><div class="bar-fill" style="--pct:80%"></div></div></div>
-            <div class="skill-bar-item"><span>SQL / SQLAlchemy</span><div class="bar"><div class="bar-fill" style="--pct:88%"></div></div></div>
-            <div class="skill-bar-item"><span>Data Pipelines</span><div class="bar"><div class="bar-fill" style="--pct:85%"></div></div></div>
-            <div class="skill-bar-item"><span>Power BI</span><div class="bar"><div class="bar-fill" style="--pct:78%"></div></div></div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3 class="skill-cat-title">BACKEND / CLOUD</h3>
-          <div class="skill-bars">
-            <div class="skill-bar-item"><span>Python</span><div class="bar"><div class="bar-fill" style="--pct:95%"></div></div></div>
-            <div class="skill-bar-item"><span>FastAPI</span><div class="bar"><div class="bar-fill" style="--pct:87%"></div></div></div>
-            <div class="skill-bar-item"><span>Java</span><div class="bar"><div class="bar-fill" style="--pct:75%"></div></div></div>
-            <div class="skill-bar-item"><span>AWS</span><div class="bar"><div class="bar-fill" style="--pct:80%"></div></div></div>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SECTION 4: PROJECTS -->
-    <section id="projects" class="section section-projects">
-      <div class="section-header">
-        <span class="section-num">04.</span>
-        <h2 class="section-title">PROJECTS</h2>
-        <div class="section-line"></div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">KY<span class="gold">.</span></div>
+      <div class="footer-text">
+        <p>Designed &amp; Engineered by <span class="gold">Kartikeya Yadav</span></p>
+        <p class="footer-sub">Built with Curiosity. Powered by AI.</p>
       </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-num">01</div>
-          <div class="project-tag">GEN AI</div>
-          <h3 class="project-name">Multi-Agent AI Orchestration</h3>
-          <p class="project-desc">A multi-layer AI orchestration system using LangChain and LLMs for autonomous task execution and decision-making pipelines.</p>
-          <div class="project-tech"><span>LangChain</span><span>Python</span><span>FastAPI</span><span>OpenAI</span></div>
-          <a href="#" class="project-link">VIEW PROJECT →</a>
-        </div>
-        <div class="project-card featured">
-          <div class="project-num">02</div>
-          <div class="project-tag">ML SYSTEM</div>
-          <h3 class="project-name">AI Inventory Management</h3>
-          <p class="project-desc">Intelligent inventory prediction system leveraging ML models for demand forecasting, anomaly detection, and automated reordering.</p>
-          <div class="project-tech"><span>Python</span><span>Kafka</span><span>SQL</span><span>FastAPI</span></div>
-          <a href="#" class="project-link">VIEW PROJECT →</a>
-        </div>
-        <div class="project-card">
-          <div class="project-num">03</div>
-          <div class="project-tag">RAG SYSTEM</div>
-          <h3 class="project-name">Kovidam Platform</h3>
-          <p class="project-desc">Enterprise-grade RAG platform for intelligent document understanding, semantic search, and AI-powered Q&A at scale.</p>
-          <div class="project-tech"><span>RAG</span><span>LangChain</span><span>AWS</span><span>FastAPI</span></div>
-          <a href="#" class="project-link">VIEW PROJECT →</a>
-        </div>
-        <div class="project-card">
-          <div class="project-num">04</div>
-          <div class="project-tag">DATA PIPELINE</div>
-          <h3 class="project-name">Real-Time Data Pipeline</h3>
-          <p class="project-desc">High-throughput streaming data pipeline with Kafka, real-time analytics, and automated alerting for enterprise data systems.</p>
-          <div class="project-tech"><span>Kafka</span><span>Python</span><span>SQL</span><span>PowerBI</span></div>
-          <a href="#" class="project-link">VIEW PROJECT →</a>
-        </div>
+      <div class="footer-links">
+        <a href="https://github.com/kartikeya2006jay" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/kartikeya2006" target="_blank">LinkedIn</a>
+        <a href="mailto:kartikeya2006jay@gmail.com">Email</a>
       </div>
-    </section>
-
-    <!-- SECTION 5: EXPERIENCE -->
-    <section id="experience" class="section section-experience">
-      <div class="section-header">
-        <span class="section-num">05.</span>
-        <h2 class="section-title">EXPERIENCE</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2024 — PRESENT</div>
-            <h3 class="timeline-role">AI/ML Engineer</h3>
-            <div class="timeline-company">Tech Organization</div>
-            <p>Building production-grade AI systems, designing multi-agent LLM pipelines, and architecting scalable ML infrastructure.</p>
-            <div class="timeline-tags"><span>Gen AI</span><span>LangChain</span><span>FastAPI</span><span>AWS</span></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2023 — 2024</div>
-            <h3 class="timeline-role">Data Engineer</h3>
-            <div class="timeline-company">Data-Driven Company</div>
-            <p>Developed high-performance data pipelines, real-time streaming systems with Kafka, and BI dashboards with Power BI.</p>
-            <div class="timeline-tags"><span>Kafka</span><span>SQL</span><span>Python</span><span>PowerBI</span></div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2022 — 2023</div>
-            <h3 class="timeline-role">ML Research Intern</h3>
-            <div class="timeline-company">Research Lab</div>
-            <p>Researched deep learning architectures, built NLP models, and contributed to published findings in AI/ML domain.</p>
-            <div class="timeline-tags"><span>PyTorch</span><span>NLP</span><span>Python</span><span>Research</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 6: RESEARCH -->
-    <section id="research" class="section section-research">
-      <div class="section-header">
-        <span class="section-num">06.</span>
-        <h2 class="section-title">RESEARCH</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="research-grid">
-        <div class="research-card">
-          <div class="research-icon">🔬</div>
-          <h3>LLM Alignment & Safety</h3>
-          <p>Exploring techniques for aligning large language models with human values and ensuring safe deployment in production systems.</p>
-          <div class="research-tag">ONGOING</div>
-        </div>
-        <div class="research-card">
-          <div class="research-icon">🧬</div>
-          <h3>Autonomous AI Agents</h3>
-          <p>Investigating multi-agent frameworks for complex task decomposition, tool use, and emergent collaborative behavior in AI systems.</p>
-          <div class="research-tag">PUBLISHED</div>
-        </div>
-        <div class="research-card">
-          <div class="research-icon">📡</div>
-          <h3>Real-Time ML Inference</h3>
-          <p>Optimizing ML model serving for sub-millisecond inference at scale using streaming architectures and edge deployment strategies.</p>
-          <div class="research-tag">IN PROGRESS</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 7: CONTACT -->
-    <section id="contact" class="section section-contact">
-      <div class="section-header">
-        <span class="section-num">07.</span>
-        <h2 class="section-title">CONTACT</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="contact-content">
-        <p class="contact-subtitle">Ready to build something extraordinary?</p>
-        <h3 class="contact-cta">LET'S CONNECT<span class="accent">.</span></h3>
-        <div class="contact-links">
-          <a href="mailto:kartikey@example.com" class="contact-btn" id="email-btn">
-            <span>📧</span> EMAIL ME
-          </a>
-          <a href="https://linkedin.com/in/kartikeyayadav" target="_blank" class="contact-btn" id="linkedin-btn">
-            <span>💼</span> LINKEDIN
-          </a>
-          <a href="https://github.com/kartikeyayadav" target="_blank" class="contact-btn" id="github-btn">
-            <span>🐙</span> GITHUB
-          </a>
-        </div>
-        <div class="contact-footer">
-          <p>© 2026 Kartikey Yadav · Built with passion &amp; code</p>
-          <p class="contact-footer-sub">KY<span class="accent">.</span> — AI &amp; ML Engineer</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
