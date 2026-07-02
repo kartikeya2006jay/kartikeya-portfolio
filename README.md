@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="assets/hero_bg.png" width="100%" style="border-radius: 12px; margin-bottom: 20px;" alt="Kartikeya Portfolio Hero" />
+<img src="assets/readme_banner.png" width="100%" style="border-radius: 12px; margin-bottom: 20px;" alt="Kartikeya Portfolio Banner" />
+
+<img src="assets/avatar.png" width="120" height="120" style="border-radius: 50%; border: 3px solid #f5a623; margin-bottom: 10px; box-shadow: 0 0 20px rgba(245, 166, 35, 0.4);" alt="Kartikeya AI Avatar" />
 
 # 🌌 KARTIKEYA YADAV — Digital Identity
 
@@ -56,6 +58,17 @@ This portfolio is not just a digital resume; it is an **immersive digital identi
     </td>
   </tr>
 </table>
+
+## 🧠 System Architecture Visualization
+
+To truly represent the work of an AI Systems Engineer, here is a high-level 3D representation of the multi-agent orchestration architectures I design and build:
+
+<div align="center">
+  <img src="assets/architecture.png" width="100%" style="border-radius: 12px; border: 1px solid rgba(245, 166, 35, 0.2);" alt="3D Isometric AI Architecture Diagram" />
+  <p><i>Conceptual 3D representation of an autonomous multi-agent AI framework with distributed data streams.</i></p>
+</div>
+
+<br>
 
 ## 🛠️ Tech Arsenal (Zero Dependencies)
 
