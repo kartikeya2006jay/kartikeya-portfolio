@@ -284,10 +284,10 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-
 .cm-icon { width: 44px; height: 44px; border-radius: 8px; border: 1px solid rgba(245,166,35,0.3); background: rgba(245,166,35,0.05); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; }
 .cm-text strong { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 0.2rem; }
 .cm-text span { font-size: 0.8rem; color: var(--muted); }
-.contact-quote { display: flex; flex-direction: column; justify-content: center; padding: 2rem; position: relative; margin-top: auto; }
+.contact-quote { display: flex; flex-direction: column; justify-content: center; padding: 1.5rem 2rem 2.5rem; position: relative; margin-top: auto; overflow: hidden; }
 .cq-icon { font-family: Georgia, serif; font-size: 3rem; color: var(--gold); line-height: 0; margin-bottom: 1rem; opacity: 0.8; }
-.contact-quote p { font-size: 1rem; color: var(--text); z-index: 2; position: relative; }
-.cq-graph { position: absolute; bottom: 1.5rem; right: 1.5rem; width: 100px; height: 30px; opacity: 0.8; z-index: 1; }
+.contact-quote p { font-size: 1rem; color: var(--text); z-index: 2; position: relative; max-width: 80%; }
+.cq-graph { position: absolute; bottom: 1rem; right: 1rem; width: 120px; height: 35px; opacity: 0.5; z-index: 1; }
 
 .contact-right { display: flex; flex-direction: column; gap: 1.5rem; }
 .terminal-container {

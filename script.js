@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const val = terminalInput.value.trim().toLowerCase();
         
         if (val === '1' || val === 'email') {
-          window.location.href = 'mailto:kartikeya2006jay@gmail.com';
+          window.open('https://mail.google.com/mail/?view=cm&fs=1&to=kartikeya2006jay@gmail.com', '_blank');
           terminalInput.value = '';
         } else if (val === '2' || val === 'linkedin') {
           window.open('https://linkedin.com/in/kartikeya2006', '_blank');
@@ -206,6 +206,27 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 3000);
         }
       }
+    });
+  }
+
+  const dmTrigger = document.getElementById('dm-trigger-btn');
+  if (dmTrigger && terminalInput) {
+    dmTrigger.addEventListener('click', () => {
+      // Add a status message visually
+      terminalInput.value = '';
+      terminalInput.placeholder = 'Type [1] or [email], or click the EMAIL card above!';
+      terminalInput.focus();
+      
+      // Scroll terminal slightly into view if needed
+      terminalInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Highlight the input temporarily
+      terminalInput.parentElement.style.boxShadow = '0 0 15px rgba(245,166,35,0.4)';
+      terminalInput.parentElement.style.transition = 'box-shadow 0.3s';
+      setTimeout(() => {
+        terminalInput.parentElement.style.boxShadow = 'none';
+        terminalInput.placeholder = 'Type a command (e.g. 1, 2, 3, 4, email) or select an option above';
+      }, 3500);
     });
   }
 });
