@@ -176,33 +176,36 @@ setInterval(() => {
   setQuote((qIdx + 1) % quotes.length);
 }, 4000);
 
-/* ====== TERMINAL ANIMATION ====== */
-function runTerminal() {
-  const cmd = document.getElementById('t-cmd');
-  const cursor = document.getElementById('t-cursor');
-  const output = document.getElementById('t-output');
-  const text = 'connect kartikeya';
-  let i = 0;
-  const typeInterval = setInterval(() => {
-    cmd.textContent += text[i];
-    i++;
-    if (i >= text.length) {
-      clearInterval(typeInterval);
-      setTimeout(() => {
-        cursor.style.display = 'none';
-        output.style.display = 'block';
-      }, 600);
-    }
-  }, 80);
-}
-
-// Re-run terminal when contact section enters view
-const terminalSection = document.getElementById('contact');
-let terminalRan = false;
-const termObs = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting && !terminalRan) {
-    terminalRan = true;
-    runTerminal();
+/* ====== TERMINAL INTERACTION ====== */
+document.addEventListener('DOMContentLoaded', () => {
+  const terminalInput = document.getElementById('terminal-input');
+  
+  if (terminalInput) {
+    terminalInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = terminalInput.value.trim().toLowerCase();
+        
+        if (val === '1' || val === 'email') {
+          window.location.href = 'mailto:kartikeya2006jay@gmail.com';
+          terminalInput.value = '';
+        } else if (val === '2' || val === 'linkedin') {
+          window.open('https://linkedin.com/in/kartikeya2006', '_blank');
+          terminalInput.value = '';
+        } else if (val === '3' || val === 'github') {
+          window.open('https://github.com/kartikeya2006jay', '_blank');
+          terminalInput.value = '';
+        } else if (val === '4' || val === 'schedule' || val === 'meeting') {
+          window.open('https://cal.com/kartikeya-yadav-jerjn6/collaboration', '_blank');
+          terminalInput.value = '';
+        } else {
+          // just clear if unknown command
+          terminalInput.value = '';
+          terminalInput.placeholder = 'Command not found. Try 1, 2, 3, or 4.';
+          setTimeout(() => {
+            terminalInput.placeholder = 'Type a command (e.g. 1, 2, 3, 4, email) or select an option above';
+          }, 3000);
+        }
+      }
+    });
   }
-}, { threshold: 0.3 });
-if (terminalSection) termObs.observe(terminalSection);
+});
